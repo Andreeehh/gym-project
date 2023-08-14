@@ -1,1 +1,13 @@
-# gym-project
+# Aplicativo em REACT.JS para organização de treinos
+## Introdução
+O aplicativo tem como intuito armazenar informações sobre os alunos como, nome, email, telefone, altura, sexo, peso, % de gordura corporal, se faz dieta, sim ou não, se possuí lesões, sim ou não, caso sim, um campo região da lesão, tendo um ENUM com as principais opções, OMBRO, TORNOZELO, LOMBAR, PESCOÇO, JOELHO, QUADRIL, PUNHO, OUTRO, e um campo de observação que seria um campo texto, e um campo grau da lesão de 1 - 5, para especificar limitações da lesão e outros detalhes, e mais um campo ENUM com o objetivo, GANHO DE MASSA, PERCA DE PESO, AUMENTO DE MOBILIDADE, RECUPERAÇÃO DE LESÃO, OUTROS, e também com um campo observação para especificar sobre.
+E também as outras informações, como exercícios, que teriam, um id, um nome, tipo de exercício, que ficaria entre PUXAR, EMPURRAR e OUTRO, grupo muscular, que ficaria entre SUPERIORES, INFERIORES e CORE, tipo de execução, que ficaria entre ISOMÉTRICO, AERÓBICO, RESISTÊNCIA, FLEXIBILIDADE, EQUILÍBRIO, VELOCIDADE E AGILIDADE, POTÊNCIA, MOBILIDADE, CARDIO INTERVALADO, ESPORTIVO OU FUNCIONAL.
+Esses exercícios o cliente montaria um treino, que teria um id, id do exercício, quantidade de repetição OU tempo de execução, e observações, onde um treino com 1 id pode ter vários exercícios.
+A ligação entre aluno e treino seria a seguinte, o cliente liga um ou mais treinos ao aluno, e então cria uma nova tabela com os linkando o aluno aos exercícios dos treinos, porém com colunas a mais, sendo elas a de carga utilizada, e observação, e se esta ativo ou não.
+## OBJETIVO
+Para melhor controle, o cliente poderá criar vários treinos para serem passados para um mesmo grupo de aluno, ou um treino específico para um aluno, podendo então acompanhar a progressão do aluno com cargas ou quantidade de repetições, e tendo uma anotação para fina de execução de um treino, também podendo alterar o peso, a % de gordura corporal, e o grau da lesão, gerando um histórico para apresentar os resultados
+## Construção
+Para construção irá ser necessário o strapi v4 para criação de endpoints para alimentar e buscar dados, que serão armazenados no elephantDB.
+Então será necessário criar os modelos com seus atributos e fazer suas ligações, 1 pra n, n para n, 1 para 1, etc.
+Para o cliente, será necessário uma página de login, que será feita com o nextAuth, que fará requisições de graphQL ao strapi, onde pós login bem sucedido, uma área administrativa com formulário em REACT.JS para CRUD de alunos, treinos, link treinos aos alunos e suas observações.
+Para os alunos, uma página de login para acessar somente seus treinos e não de outros alunos, e conterá treinos atuais, no caso se está ativo ou não, cargas atuais, observações, e um gráfico de desempenho, também em REACT.JS.
